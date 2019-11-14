@@ -1,0 +1,24 @@
+1. kubectl exec -it <containerid> /bin/sh
+2. mongo
+3. use admin
+4. db.auth('root',<root-password>);
+5. use main
+6. db.createUser(
+    {
+        user: "main_user",
+        pwd: "123456",
+        roles:[
+            {"role":"readWrite","db":"main"}
+        ]
+    }
+);
+7.use second
+8. db.createUser(
+    {
+        user: "second_user",
+        pwd: "654321",
+        roles:[
+            {"role":"readWrite","db":"second"}
+        ]
+    }
+);
