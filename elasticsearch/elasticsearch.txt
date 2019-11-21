@@ -4,6 +4,10 @@
 
 helm install elastic stable/elasticsearch --set client.replicas=1 --set data.replicas=1 --set master.replicas=1 --set master.heapSize="512m" --set data.heapSize="512m" --set cluster.env.MINIMUM_MASTER_NODES=1 --set cluster.env.EXPECTED_MASTER_NODES=1
 
+or
+
+helm install elasticsearch -f ./values.yaml stable/elasticsearch
+
 NAME: elastic
 LAST DEPLOYED: Thu Nov 21 10:23:56 2019
 NAMESPACE: default

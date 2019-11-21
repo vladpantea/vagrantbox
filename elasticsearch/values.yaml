@@ -119,7 +119,7 @@ client:
 #  serviceAnnotations:
 #    example: client-svc-foo
   heapSize: "512m"
-  # additionalJavaOpts: "-XX:MaxRAM=512m"
+  additionalJavaOpts: "-XX:MaxRAM=512m"
   antiAffinity: "soft"
   nodeAffinity: {}
   nodeSelector: {}
@@ -135,7 +135,7 @@ client:
   resources:
     limits:
       cpu: "1"
-      # memory: "1024Mi"
+      memory: "1024Mi"
     requests:
       cpu: "25m"
       memory: "512Mi"
@@ -146,7 +146,7 @@ client:
   podDisruptionBudget:
     enabled: false
     minAvailable: 1
-    # maxUnavailable: 1
+    maxUnavailable: 1
   hooks: {}
     ## (string) Script to execute prior the client pod stops.
     # preStop: |-
@@ -173,7 +173,7 @@ master:
   exposeHttp: false
   replicas: 2
   heapSize: "512m"
-  # additionalJavaOpts: "-XX:MaxRAM=512m"
+  additionalJavaOpts: "-XX:MaxRAM=512m"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -200,7 +200,7 @@ master:
   resources:
     limits:
       cpu: "1"
-      # memory: "1024Mi"
+      memory: "1024Mi"
     requests:
       cpu: "25m"
       memory: "512Mi"
@@ -211,8 +211,8 @@ master:
   podManagementPolicy: OrderedReady
   podDisruptionBudget:
     enabled: false
-    minAvailable: 1  # Same as `cluster.env.MINIMUM_MASTER_NODES`
-    # maxUnavailable: 1
+    minAvailable: 2  # Same as `cluster.env.MINIMUM_MASTER_NODES`
+    maxUnavailable: 1
   updateStrategy:
     type: OnDelete
   hooks: {}
@@ -227,7 +227,7 @@ data:
   exposeHttp: false
   replicas: 1
   heapSize: "1536m"
-  # additionalJavaOpts: "-XX:MaxRAM=1536m"
+  additionalJavaOpts: "-XX:MaxRAM=1536m"
   persistence:
     enabled: true
     accessMode: ReadWriteOnce
@@ -254,7 +254,7 @@ data:
   resources:
     limits:
       cpu: "1"
-      # memory: "2048Mi"
+      memory: "2048Mi"
     requests:
       cpu: "25m"
       memory: "1536Mi"
@@ -264,7 +264,7 @@ data:
   #   example: data-foo
   podDisruptionBudget:
     enabled: false
-    # minAvailable: 1
+    minAvailable: 1
     maxUnavailable: 1
   podManagementPolicy: OrderedReady
   updateStrategy:
