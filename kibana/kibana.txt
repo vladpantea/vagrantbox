@@ -1,0 +1,16 @@
+###change files.kibana.yml.elasticsearch.hosts: http://elastic-elasticsearch-client:9200
+helm install kibana -f ./values.yaml stable/kibana
+
+
+LAST DEPLOYED: Thu Nov 21 11:32:22 2019
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+To verify that kibana has started, run:
+  kubectl --namespace=default get pods -l "app=kibana"
+Kibana can be accessed:
+  * From outside the cluster, run these commands in the same shell:
+    export POD_NAME=$(kubectl get pods --namespace default -l "app=kibana,release=kibana" -o jsonpath="{.items[0].metadata.name}")
+    echo "Visit http://127.0.0.1:5601 to use Kibana"
+    kubectl port-forward --namespace default $POD_NAME 5601:5601

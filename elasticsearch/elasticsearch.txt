@@ -1,0 +1,20 @@
+
+
+!!not production ready
+
+helm install elastic stable/elasticsearch --set client.replicas=1 --set data.replicas=1 --set master.replicas=1 --set master.heapSize="512m" --set data.heapSize="512m" --set cluster.env.MINIMUM_MASTER_NODES=1 --set cluster.env.EXPECTED_MASTER_NODES=1
+
+NAME: elastic
+LAST DEPLOYED: Thu Nov 21 10:23:56 2019
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+The elasticsearch cluster has been installed.
+Elasticsearch can be accessed:
+  * Within your cluster, at the following DNS name at port 9200:
+    elastic-elasticsearch-client.default.svc
+  * From outside the cluster, run these commands in the same shell:
+    export POD_NAME=$(kubectl get pods --namespace default -l "app=elasticsearch,component=client,release=elastic" -o jsonpath="{.items[0].metadata.name}")
+    echo "Visit http://127.0.0.1:9200 to use Elasticsearch"
+    kubectl port-forward --namespace default $POD_NAME 9200:9200
