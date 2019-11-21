@@ -1,8 +1,9 @@
-###change files.kibana.yml.elasticsearch.hosts: http://elastic-elasticsearch-client:9200
+###change files.kibana.yml.elasticsearch.hosts: http://elasticsearch-client:9200
 helm install kibana -f ./values.yaml stable/kibana
 
 
-LAST DEPLOYED: Thu Nov 21 11:32:22 2019
+NAME: kibana
+LAST DEPLOYED: Thu Nov 21 15:25:49 2019
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
